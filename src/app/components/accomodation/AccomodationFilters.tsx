@@ -29,62 +29,6 @@ const AccomodationFilters = ({
     e.preventDefault()
     if (!accomodations) return
 
-    // const newAccomodationFilterPredicate = (accomodation: Accomodation) => {
-    //   let isDateRangeAvailable = true
-
-    //   if (
-    //     accomodationFilters.arrivalDate &&
-    //     accomodationFilters.departureDate
-    //   ) {
-    //     isDateRangeAvailable = accomodation.availableDates.some(
-    //       ({ intervalStart, intervalEnd }) => {
-    //         return (
-    //           new Date(intervalStart) <= accomodationFilters.arrivalDate! &&
-    //           new Date(intervalEnd) >= accomodationFilters.departureDate!
-    //         )
-    //       }
-    //     )
-    //   } else if (accomodationFilters.arrivalDate) {
-    //     isDateRangeAvailable = accomodation.availableDates.some(
-    //       ({ intervalStart, intervalEnd }) => {
-    //         return (
-    //           new Date(intervalStart) <= accomodationFilters.arrivalDate! &&
-    //           new Date(intervalEnd) > accomodationFilters.arrivalDate!
-    //         )
-    //       }
-    //     )
-    //   } else if (accomodationFilters.departureDate) {
-    //     isDateRangeAvailable = accomodation.availableDates.some(
-    //       ({ intervalStart, intervalEnd }) => {
-    //         return (
-    //           new Date(intervalStart) < accomodationFilters.departureDate! &&
-    //           new Date(intervalEnd) >= accomodationFilters.departureDate!
-    //         )
-    //       }
-    //     )
-    //   }
-
-    //   if (!isDateRangeAvailable) return false
-
-    //   if (
-    //     accomodationFilters.capacity &&
-    //     accomodation.capacity < accomodationFilters.capacity
-    //   )
-    //     return false
-
-    //   const amenitiesKeys = Object.keys(accomodationFilters.amenities)
-    //   const matchesAmenities = amenitiesKeys.every((key) => {
-    //     if (!accomodationFilters.amenities[key]) return true
-
-    //     return (
-    //       accomodationFilters.amenities[key] === accomodation.amenities[key]
-    //     )
-    //   })
-    //   if (!matchesAmenities) return false
-
-    //   return true
-    // }
-
     const newAccomodationFilterPredicate = (accomodation: Accomodation) => {
       let isDateRangeAvailable = true
 

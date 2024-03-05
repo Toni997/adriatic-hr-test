@@ -6,7 +6,7 @@ import SelectAccomodationCapacity from './SelectAccomodationCapacity'
 import { useAccomodationFiltersStore } from '@/app/stores/accomodationFiltersStore'
 import { FaInfoCircle } from 'react-icons/fa'
 import { useReservationDetailsStore } from '@/app/stores/reservationDetailsStore'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 interface AccomodationReservationFormProps {
   maxNumberOfPeople: number
@@ -63,7 +63,9 @@ const AccomodationReservationForm = ({
       totalPriceInEuros: totalPriceInEuros!,
     })
 
-    router.push('/accomodation/reservation-confirmation')
+    router.push('/accomodation/reservation-confirmation', undefined, {
+      shallow: true,
+    })
   }
 
   useEffect(() => {

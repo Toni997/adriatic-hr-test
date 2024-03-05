@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useMemo } from 'react'
 import DatePicker from '../common/DatePicker'
 import { formatDateForInput } from '@/app/helpers'
 import {
@@ -17,38 +17,21 @@ const SelectAccomodationArrivalAndDeparture = () => {
     updateDate,
   } = useAccomodationFiltersStore()
 
-  const [maxArrivalDate, setMaxArrivalDate] = useState(
-    MAX_POSSIBLE_ARRIVAL_DATE
-  )
-  const [minDepartureDate, setMinDepartureDate] = useState(
-    MIN_POSSIBLE_DEPARTURE_DATE
-  )
-
-  const updateMaxArrivalDate = () => {
-    if (!departureDate)
-      return setMaxArrivalDate(() => MAX_POSSIBLE_ARRIVAL_DATE)
+  const maxArrivalDate = useMemo(() => {
+    if (!departureDate) return MAX_POSSIBLE_ARRIVAL_DATE
 
     const maxArrivalDate = new Date(departureDate.getTime())
     maxArrivalDate.setDate(maxArrivalDate.getDate() - 1)
-    setMaxArrivalDate(() => formatDateForInput(maxArrivalDate))
-  }
+    return formatDateForInput(maxArrivalDate)
+  }, [departureDate])
 
-  const updateMinDepartureDate = () => {
-    if (!arrivalDate)
-      return setMinDepartureDate(() => MIN_POSSIBLE_DEPARTURE_DATE)
+  const minDepartureDate = useMemo(() => {
+    if (!arrivalDate) return MIN_POSSIBLE_DEPARTURE_DATE
 
     const minDepartureDate = new Date(arrivalDate.getTime())
     minDepartureDate.setDate(minDepartureDate.getDate() + 1)
-    setMinDepartureDate(() => formatDateForInput(minDepartureDate))
-  }
-
-  useEffect(() => {
-    updateMinDepartureDate()
+    return formatDateForInput(minDepartureDate)
   }, [arrivalDate])
-
-  useEffect(() => {
-    updateMaxArrivalDate()
-  }, [departureDate])
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     updateDate(e.target.name, new Date(e.target.value))

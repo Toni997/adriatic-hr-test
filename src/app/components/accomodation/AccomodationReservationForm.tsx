@@ -126,14 +126,12 @@ const AccomodationReservationForm = ({
 
   return (
     <form onSubmit={onSubmitReservation}>
-      <div className='flex gap-2'>
+      <div className='flex gap-2 max-lg:flex-col'>
         <SelectAccomodationArrivalAndDeparture />
-        <div className='ml-3'>
-          <SelectAccomodationCapacity max={maxNumberOfPeople} />
-        </div>
+        <SelectAccomodationCapacity max={maxNumberOfPeople} />
         <button
           type='submit'
-          className={`btn btn-primary ml-3 bg-purple-500 border-none hover:bg-purple-400 duration-300${
+          className={`btn btn-primary bg-purple-500 border-none hover:bg-purple-400 duration-300${
             isSubmitting ? ' cursor-progress' : ''
           }`}
           disabled={

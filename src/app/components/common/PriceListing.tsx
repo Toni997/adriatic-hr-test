@@ -1,14 +1,8 @@
+import { formatDateForOutput } from '@/app/helpers'
 import React from 'react'
 
 interface PriceListingProps {
   pricelistInEuros: PriceInEuros[]
-}
-
-const formatDateToMonthDay = (dateString: string) => {
-  const date = new Date(dateString)
-  const day = date.getDate()
-  const month = date.getMonth() + 1
-  return `${day}.${month}.`
 }
 
 const PriceListing = ({ pricelistInEuros }: PriceListingProps) => {
@@ -27,8 +21,8 @@ const PriceListing = ({ pricelistInEuros }: PriceListingProps) => {
             key={index}
             className='hover border-b-purple-700 hover:!bg-purple-700'
           >
-            <td>{formatDateToMonthDay(price.intervalStart)}</td>
-            <td>{formatDateToMonthDay(price.intervalEnd)}</td>
+            <td>{formatDateForOutput(new Date(price.intervalStart))}</td>
+            <td>{formatDateForOutput(new Date(price.intervalEnd))}</td>
             <td>{price.pricePerNight},00 €</td>
           </tr>
         ))}

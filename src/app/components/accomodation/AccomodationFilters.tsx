@@ -82,29 +82,40 @@ const AccomodationFilters = ({
   return (
     <>
       <form onSubmit={onSubmitFilters}>
-        <div className='flex items-center'>
+        <div className='flex items-center max-lg:flex-col gap-2 mb-2'>
           <SelectArrivalAndDeparture />
-          <div className='ml-3'>
-            <SelectAccomodationCapacity />
-          </div>
+          <SelectAccomodationCapacity />
           <button
             type='submit'
-            className='btn btn-primary ml-3 bg-purple-500 border-none hover:bg-purple-400 duration-300'
+            className='max-lg:hidden btn btn-primary bg-purple-500 border-none hover:bg-purple-400 duration-300'
           >
             <FaSearch />
           </button>
-          <div className='tooltip ml-3' data-tip='Očisti filtere'>
+          <div
+            className='max-lg:hidden tooltip max-lg:w-full'
+            data-tip='Očisti filtere'
+          >
             <button
-              className='btn btn-primary rounded-full text-black bg-red-500 border-none hover:bg-red-400 duration-300'
+              className='btn btn-primary m rounded-full text-black bg-red-500 border-none hover:bg-red-400 duration-300'
               onClick={clearAllFilters}
             >
               <IoClose />
             </button>
           </div>
         </div>
-        <div className='mt-2'>
-          <SelectAmenities />
-        </div>
+        <SelectAmenities />
+        <button
+          className='hidden max-lg:block w-full btn btn-primary mt-1 mb-3 text-black bg-red-500 border-none hover:bg-red-400 duration-300'
+          onClick={clearAllFilters}
+        >
+          Očisti filtere
+        </button>
+        <button
+          type='submit'
+          className='hidden max-lg:flex justify-center w-full text-center btn btn-primary bg-purple-500 border-none hover:bg-purple-400 duration-300'
+        >
+          <FaSearch />
+        </button>
       </form>
     </>
   )

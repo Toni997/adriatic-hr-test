@@ -21,9 +21,9 @@ const SelectAccomodationCapacity = ({
 
   return (
     <>
-      <div>
+      <div className='max-lg:w-full'>
         <select
-          className='select select-bordered bg-purple-500 rounded-md'
+          className='select select-bordered bg-purple-500 rounded-md w-full'
           value={capacity}
           onChange={onChangeCapacity}
         >

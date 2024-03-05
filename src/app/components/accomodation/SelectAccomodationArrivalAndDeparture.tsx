@@ -63,21 +63,19 @@ const SelectAccomodationArrivalAndDeparture = () => {
   }
 
   return (
-    <div>
+    <div className='flex gap-2 items-center max-lg:flex-col max-lg:w-full'>
       <DatePicker
         date={arrivalDate}
         minDate={MIN_AVAILABLE_DATE}
         maxDate={maxArrivalDate}
-        placeholder='Datum dolaska'
         onDateChange={onChangeDate}
         name='arrivalDate'
       />
-      <span className='mx-3'>do</span>
+      <span>do</span>
       <DatePicker
         date={departureDate}
         minDate={minDepartureDate}
         maxDate={MAX_AVAILABLE_DATE}
-        placeholder='Datum odlaska'
         onDateChange={onChangeDate}
         name='departureDate'
       />

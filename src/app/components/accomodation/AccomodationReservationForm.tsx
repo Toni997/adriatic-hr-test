@@ -35,6 +35,7 @@ const AccomodationReservationForm = ({
       capacity: numberOfPeople,
     },
   } = useAccomodationFiltersStore()
+
   const [error, setError] = useState<string | null>(null)
 
   const [totalPriceInEuros, setTotalPriceInEuros] = useState<number | null>(

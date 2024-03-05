@@ -7,6 +7,7 @@ import { useAccomodationFiltersStore } from '@/app/stores/accomodationFiltersSto
 import { FaInfoCircle } from 'react-icons/fa'
 import { useReservationDetailsStore } from '@/app/stores/reservationDetailsStore'
 import { redirect, useRouter } from 'next/navigation'
+import { MILLISECONDS_PER_DAY } from '@/app/constants'
 
 interface AccomodationReservationFormProps {
   maxNumberOfPeople: number
@@ -105,7 +106,7 @@ const AccomodationReservationForm = ({
       arrivalDate.getTime()
     )
     const overlapEnd = Math.min(intervalEnd.getTime(), departureDate.getTime())
-    return Math.ceil((overlapEnd - overlapStart) / (1000 * 60 * 60 * 24))
+    return Math.ceil((overlapEnd - overlapStart) / MILLISECONDS_PER_DAY)
   }
 
   const calculateTotalPrice = () => {

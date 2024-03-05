@@ -24,7 +24,7 @@ const SelectAccomodationArrivalAndDeparture = () => {
     MIN_POSSIBLE_DEPARTURE_DATE
   )
 
-  const updateMaxArrivalDate = (departureDateValue?: string) => {
+  const updateMaxArrivalDate = () => {
     if (!departureDate)
       return setMaxArrivalDate(() => MAX_POSSIBLE_ARRIVAL_DATE)
 
@@ -43,9 +43,12 @@ const SelectAccomodationArrivalAndDeparture = () => {
   }
 
   useEffect(() => {
-    updateMaxArrivalDate()
     updateMinDepartureDate()
-  }, [arrivalDate, departureDate])
+  }, [arrivalDate])
+
+  useEffect(() => {
+    updateMaxArrivalDate()
+  }, [departureDate])
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     updateDate(e.target.name, new Date(e.target.value))

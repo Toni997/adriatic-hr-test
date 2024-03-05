@@ -52,8 +52,6 @@ const SelectAccomodationArrivalAndDeparture = () => {
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     updateDate(e.target.name, new Date(e.target.value))
-    updateMaxArrivalDate()
-    updateMinDepartureDate()
   }
 
   return (

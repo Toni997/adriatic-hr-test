@@ -42,13 +42,13 @@ const AccomodationsList = () => {
       </div>
       <div>
         {error && <ErrorAlert error={error} />}
-        {filteredAccommodations?.length === 0 && !isLoading && (
+        {isLoading && <Loader />}
+        {!isLoading && filteredAccommodations?.length === 0 && (
           <NothingFoundAlert />
         )}
-        {isLoading && <Loader />}
         {!isLoading &&
           filteredAccommodations &&
-          filteredAccommodations?.length > 0 && (
+          filteredAccommodations.length > 0 && (
             <p className='mb-3'>
               Ukupno: {filteredAccommodations.length}
               {filteredAccommodations.length > 1 ? ' smještaja' : ' smještaj'}

@@ -19,37 +19,37 @@ const SelectAccomodationAmenities = () => {
       <div className='flex gap-2 max-lg:flex-col max-lg:gap-0'>
         <Checkbox
           checked={amenities.airConditioning}
-          name={'airConditioning'}
+          name='airConditioning'
           labeltext='Klimatizacija'
           onCheckboxChange={onChangeAmenities}
         />
         <Checkbox
           checked={amenities.parkingSpace}
-          name={'parkingSpace'}
+          name='parkingSpace'
           labeltext='Parkirno mjesto'
           onCheckboxChange={onChangeAmenities}
         />
         <Checkbox
           checked={amenities.pets}
-          name={'pets'}
+          name='pets'
           labeltext='Dozvola za kućne ljubimce'
           onCheckboxChange={onChangeAmenities}
         />
         <Checkbox
           checked={amenities.pool}
-          name={'pool'}
+          name='pool'
           labeltext='Bazen'
           onCheckboxChange={onChangeAmenities}
         />
         <Checkbox
           checked={amenities.tv}
-          name={'tv'}
+          name='tv'
           labeltext='Satelitski TV program'
           onCheckboxChange={onChangeAmenities}
         />
         <Checkbox
           checked={amenities.wifi}
-          name={'wifi'}
+          name='wifi'
           labeltext='WiFi'
           onCheckboxChange={onChangeAmenities}
         />

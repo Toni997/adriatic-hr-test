@@ -29,7 +29,7 @@ export const useAccomodationFiltersStore = create<AccomodationFiltersStore>(
       },
     },
     clearAllFilters: () =>
-      set((state) => ({
+      set(() => ({
         accomodationFilters: {
           arrivalDate: null,
           departureDate: null,

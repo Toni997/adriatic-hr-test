@@ -32,9 +32,6 @@ const AccomodationsList = () => {
 
   return (
     <>
-      <h1 className='text-2xl border-purple-900 border-b-2 mb-4 pb-2'>
-        Smještaji
-      </h1>
       <div className='mb-5'>
         <AccomodationFilters
           accomodations={accomodations}

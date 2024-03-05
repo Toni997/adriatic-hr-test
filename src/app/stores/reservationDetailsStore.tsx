@@ -9,7 +9,7 @@ export const useReservationDetailsStore = create<ReservationDetailsStore>(
   (set) => ({
     reservationDetails: null,
     updateReservationDetails: (newReservationDetails) => {
-      set((store) => ({
+      set(() => ({
         reservationDetails: {
           ...newReservationDetails,
         },

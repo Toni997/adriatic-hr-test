@@ -11,6 +11,7 @@ const ReservationConfirmationDetails = () => {
   const router = useRouter()
 
   useEffect(() => {
+    console.log('working?', reservationDetails)
     if (!reservationDetails) router.push('/')
   }, [])
 

@@ -56,11 +56,11 @@ const AccomodationReservationForm = ({
     e.preventDefault()
     setIsSubmitting(() => true)
     updateReservationDetails({
-      accomodationId: accomodationId,
-      accomodationTitle: accomodationTitle,
+      accomodationId,
+      accomodationTitle,
       arrivalDate: arrivalDate!,
       departureDate: departureDate!,
-      numberOfPeople: numberOfPeople,
+      numberOfPeople,
       totalPriceInEuros: totalPriceInEuros!,
     })
 

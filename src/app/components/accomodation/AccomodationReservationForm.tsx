@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FormEvent, useEffect, useMemo, useState } from 'react'
 import SelectAccomodationArrivalAndDeparture from './SelectAccomodationArrivalAndDeparture'
 import SelectAccomodationCapacity from './SelectAccomodationCapacity'
@@ -23,8 +25,7 @@ const AccomodationReservationForm = ({
 }: AccomodationReservationFormProps) => {
   const router = useRouter()
 
-  const { reservationDetails, updateReservationDetails } =
-    useReservationDetailsStore()
+  const { updateReservationDetails } = useReservationDetailsStore()
 
   const {
     accomodationFilters: {
@@ -61,6 +62,7 @@ const AccomodationReservationForm = ({
       numberOfPeople: numberOfPeople,
       totalPriceInEuros: totalPriceInEuros!,
     })
+
     router.push('/accomodation/reservation-confirmation')
   }
 

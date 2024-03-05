@@ -1,14 +1,18 @@
+'use client'
+
 import { formatDateForOutput } from '@/app/helpers'
 import { useReservationDetailsStore } from '@/app/stores/reservationDetailsStore'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const ReservationConfirmationDetails = () => {
   const { reservationDetails } = useReservationDetailsStore()
   const router = useRouter()
 
-  if (!reservationDetails) router.push('/')
+  useEffect(() => {
+    if (!reservationDetails) router.push('/')
+  }, [])
 
   return (
     <>
@@ -38,7 +42,10 @@ const ReservationConfirmationDetails = () => {
           </tbody>
         </table>
       )}
-      <Link href='/' className='btn btn-ghost text-xl bg-purple-800 hover:bg-purple-900'>
+      <Link
+        href='/'
+        className='btn btn-ghost text-xl bg-purple-800 hover:bg-purple-900'
+      >
         Natrag
       </Link>
     </>

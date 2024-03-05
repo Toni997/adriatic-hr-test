@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, useEffect } from 'react'
+import React, { ChangeEvent } from 'react'
 import Checkbox from '../common/Checkbox'
 import { useAccomodationFiltersStore } from '@/app/stores/accomodationFiltersStore'
 

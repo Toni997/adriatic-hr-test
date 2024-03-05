@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ChangeEvent, FormEvent, useEffect } from 'react'
+import React, { FormEvent } from 'react'
 import SelectAccomodationCapacity from './SelectAccomodationCapacity'
 import { FaSearch } from 'react-icons/fa'
 import SelectArrivalAndDeparture from './SelectAccomodationArrivalAndDeparture'
@@ -17,13 +17,7 @@ const AccomodationFilters = ({
   accomodations,
   updateAccomodationsFilterPredicate,
 }: AccomodationFiltersProps) => {
-  const {
-    accomodationFilters,
-    updateAmenity,
-    updateCapacity,
-    updateDate,
-    clearAllFilters,
-  } = useAccomodationFiltersStore()
+  const { accomodationFilters, clearAllFilters } = useAccomodationFiltersStore()
 
   const onSubmitFilters = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

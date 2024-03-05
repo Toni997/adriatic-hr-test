@@ -53,7 +53,7 @@ const AccomodationReservationForm = ({
 
   const onSubmitReservation = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    setIsSubmitting(() => true)
     updateReservationDetails({
       accomodationId: accomodationId,
       accomodationTitle: accomodationTitle,
@@ -118,10 +118,10 @@ const AccomodationReservationForm = ({
         arrivalDate,
         departureDate
       )
-
-      totalPriceInEuros += numberOfOverlappingNights * pricelist.pricePerNight
+      totalPriceInEuros +=
+        Math.max(numberOfOverlappingNights, 0) * pricelist.pricePerNight
     })
-    setTotalPriceInEuros((prev) => totalPriceInEuros)
+    setTotalPriceInEuros(() => totalPriceInEuros)
   }
 
   return (

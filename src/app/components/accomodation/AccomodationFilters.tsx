@@ -68,8 +68,8 @@ const AccomodationFilters = ({
 
       const matchesAmenities = Object.entries(
         accomodationFilters.amenities
-      ).every(([key, value]) => {
-        return !value || accomodation.amenities[key] === value
+      ).every(([amenity, isAvailable]) => {
+        return !isAvailable || accomodation.amenities[amenity] === isAvailable
       })
       if (!matchesAmenities) return false
 

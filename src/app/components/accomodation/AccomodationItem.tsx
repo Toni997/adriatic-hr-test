@@ -13,7 +13,7 @@ const AccomodationItem = ({ accomodation }: AccomodationItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const onExpand = () => {
-    setIsExpanded(!isExpanded)
+    setIsExpanded((prev) => !prev)
   }
 
   return (

@@ -6,6 +6,7 @@ import { formatDateForInput } from '@/app/helpers'
 import {
   MAX_AVAILABLE_DATE,
   MAX_POSSIBLE_ARRIVAL_DATE,
+  MILLISECONDS_PER_DAY,
   MIN_AVAILABLE_DATE,
   MIN_POSSIBLE_DEPARTURE_DATE,
 } from '@/app/constants'
@@ -17,21 +18,15 @@ const SelectAccomodationArrivalAndDeparture = () => {
     updateDate,
   } = useAccomodationFiltersStore()
 
-  const maxArrivalDate = useMemo(() => {
-    if (!departureDate) return MAX_POSSIBLE_ARRIVAL_DATE
+  const maxArrivalDate = !departureDate
+    ? MAX_POSSIBLE_ARRIVAL_DATE
+    : formatDateForInput(
+        new Date(departureDate.getTime() - MILLISECONDS_PER_DAY)
+      )
 
-    const maxArrivalDate = new Date(departureDate.getTime())
-    maxArrivalDate.setDate(maxArrivalDate.getDate() - 1)
-    return formatDateForInput(maxArrivalDate)
-  }, [departureDate])
-
-  const minDepartureDate = useMemo(() => {
-    if (!arrivalDate) return MIN_POSSIBLE_DEPARTURE_DATE
-
-    const minDepartureDate = new Date(arrivalDate.getTime())
-    minDepartureDate.setDate(minDepartureDate.getDate() + 1)
-    return formatDateForInput(minDepartureDate)
-  }, [arrivalDate])
+  const minDepartureDate = !arrivalDate
+    ? MIN_POSSIBLE_DEPARTURE_DATE
+    : formatDateForInput(new Date(arrivalDate.getTime() + MILLISECONDS_PER_DAY))
 
   const onChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     updateDate(e.target.name, new Date(e.target.value))

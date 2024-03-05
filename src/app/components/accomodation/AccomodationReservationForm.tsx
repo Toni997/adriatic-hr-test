@@ -63,7 +63,7 @@ const AccomodationReservationForm = ({
       totalPriceInEuros: totalPriceInEuros!,
     })
 
-    router.push('accomodation/reservation-confirmation')
+    router.push('/accomodation/reservation-confirmation')
   }
 
   useEffect(() => {

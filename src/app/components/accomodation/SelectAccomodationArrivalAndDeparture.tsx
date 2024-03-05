@@ -25,28 +25,19 @@ const SelectAccomodationArrivalAndDeparture = () => {
   )
 
   const updateMaxArrivalDate = (departureDateValue?: string) => {
-    const currentDepartureDate = departureDateValue
-      ? new Date(departureDateValue)
-      : departureDate
-    if (!currentDepartureDate) {
-      setMaxArrivalDate(() => MAX_POSSIBLE_ARRIVAL_DATE)
-      return
-    }
+    if (!departureDate)
+      return setMaxArrivalDate(() => MAX_POSSIBLE_ARRIVAL_DATE)
 
-    const maxArrivalDate = new Date(currentDepartureDate.getTime())
+    const maxArrivalDate = new Date(departureDate.getTime())
     maxArrivalDate.setDate(maxArrivalDate.getDate() - 1)
     setMaxArrivalDate(() => formatDateForInput(maxArrivalDate))
   }
 
-  const updateMinDepartureDate = (arrivalDateValue?: string) => {
-    const currentArrivalDate = arrivalDateValue
-      ? new Date(arrivalDateValue)
-      : arrivalDate
-    if (!currentArrivalDate) {
-      setMinDepartureDate(() => MIN_POSSIBLE_DEPARTURE_DATE)
-      return
-    }
-    const minDepartureDate = new Date(currentArrivalDate.getTime())
+  const updateMinDepartureDate = () => {
+    if (!arrivalDate)
+      return setMinDepartureDate(() => MIN_POSSIBLE_DEPARTURE_DATE)
+
+    const minDepartureDate = new Date(arrivalDate.getTime())
     minDepartureDate.setDate(minDepartureDate.getDate() + 1)
     setMinDepartureDate(() => formatDateForInput(minDepartureDate))
   }
